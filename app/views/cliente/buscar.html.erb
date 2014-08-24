@@ -1,0 +1,12 @@
+<h1>Cliente#buscar</h1>
+
+<h2>Buscar</h2>
+<%= form_tag("/cliente/buscar",:method => "POST") do %>
+<%= label_tag("Nombre") %> <%= search_field("busqueda","") %>
+<%= submit_tag("Buscar",:class => "btn btn-info btn-xs") %>
+<% end %>
+<br/>
+<%= link_to("Crear nuevo cliente",:action => "crear") %>
+<br/><br/>
+<%= tabla_clientes(@clientes) %>
+

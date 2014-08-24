@@ -1,0 +1,21 @@
+
+<div class="col-md-4">
+	<h1>Cliente#crear</h1>
+	<%= form_for @cliente, :url => {:action => "crear"}, :method => "POST" do |form| %>
+		<div class="form-group">
+			<%= form.label(:nombre) %></br>
+			<%= form.text_field(:nombre,:class => "form-control") %>
+		</div>
+		<%= form.label(:apellidos) %><br/>
+		<%= form.text_field(:apellidos,:class => "form-control") %><br/>
+		<%= form.label(:edad) %><br/>
+		<%= form.number_field(:edad,:min => 0,:max => 100,:class => "form-control") %><br/>
+		<%= form.label(:telefono) %><br/>
+		<%= form.telephone_field(:telefono,:class => "form-control") %><br/>
+		<%= form.label("Estado Civil") %><br/>
+		<%= form.select(:estado_cv,'<option>Soltero</option><option>Casado</option><option>Separado</option>'.html_safe,{},{:class=>"form-control"}) %><br/>
+		<%= form.label("E-mail") %><br/>
+		<%= form.email_field(:email,:class => "form-control") %><br/>
+		<%= form.submit("Crear",:class => "btn btn-primary form-control") %><br/>
+	<% end %>
+</div>

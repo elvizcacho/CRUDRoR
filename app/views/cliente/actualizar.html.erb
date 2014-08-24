@@ -1,0 +1,26 @@
+
+<div class="col-md-4">
+<h1>Cliente#actualizar</h1>
+<%= form_for @cliente, :url => {:action => "actualizar", :id => @cliente}, :method => "post" do |form| %>
+	<%= form.label("Nombre") %><br/>
+	<%= form.text_field(:nombre,:class => "form-control") %><br/>
+	<%= form.label("Apellidos") %><br/>
+	<%= form.text_field(:apellidos,:class => "form-control") %><br/>
+	<%= form.label("Edad") %><br/>
+	<%= form.number_field(:edad,:min => 0,:max => 100,:class => "form-control") %><br/>
+	<%= form.label("Telefono") %><br/>
+	<%= form.telephone_field(:telefono,:class => "form-control") %><br/>
+	<% if @cliente.estado_cv == "Soltero" %>
+	<%	 @opciones = '<option selected>Soltero</option><option>Casado</option><option>Divorciado</option>' %>
+	<% elsif @cliente.estado_cv == "Casado" %>
+	<%	 @opciones = '<option>Soltero</option><option selected>Casado</option><option>Divorciado</option>' %>
+	<% elsif @cliente.estado_cv == "Divorciado" %>
+	<%	 @opciones = '<option>Soltero</option><option>Casado</option><option selected>Divorciado</option>' %>
+	<% end %>
+	<%= form.label("Estado civil") %><br/>
+	<%= form.select(:estado_cv,@opciones.html_safe,{},:class => "form-control") %><br/>
+	<%= form.label("E-mail") %><br/>
+	<%= form.email_field(:email,:class => "form-control") %><br/>
+	<%= form.submit("Actualizar",:class => "btn btn-primary form-control") %><br/>
+<% end %>
+</div>

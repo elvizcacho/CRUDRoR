@@ -24,6 +24,5 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: ex_from_crud
-  username: ex_from_crud
-  password: <%= ENV['ex_from_crud_DATABASE_PASSWORD'] %>
+  #database: ex_from_crud
+  #password: <%= ENV['ex_from_crud_DATABASE_PASSWORD'] %>
